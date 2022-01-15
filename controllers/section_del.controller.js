@@ -25,7 +25,7 @@ const postCreateSectionsDel = async (req, res) => {
   res.json({
     message: "SectionDel creado con exito",
     body: {
-      Section: {
+      SectionDel: {
         sec_id, 
 		product_id
       },
@@ -43,7 +43,7 @@ const putUpdateSectionsDel = async (req, res) => {
   res.json({
     message: "SectionDel actualizado con éxito",
     body: {
-      Section:{
+      SectionDel:{
         sec_del_id,
         sec_id,
         product_id

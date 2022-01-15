@@ -4,6 +4,9 @@ const { getUsers, getUsersByRole, postCreateUsers, putUpdateUsers, deleteUsers }
 const {getSections, getSectionsByName, postCreateSections, putUpdateSections, deleteSections} = require("../controllers/section.controller");
 const {getProducts,getProductsByTitle,postCreateProducts,putUpdateProducts,deleteProducts}= require("../controllers/product.controller");
 const {getSectionsDel, getSectionsDelBySection, postCreateSectionsDel, putUpdateSectionsDel, deleteSectionsDel} = require("../controllers/section_del.controller")
+const {}=require("../controllers/cart_cab.controller")
+
+
 
 const router= Router()
 
@@ -41,6 +44,13 @@ router.get("/sections_del/:section",getSectionsDelBySection)
 router.post("/sections_del",postCreateSectionsDel)
 router.put("/sections_del",putUpdateSectionsDel)
 router.put("/sections_del",deleteSectionsDel)
+
+//Rutas de Cart Cabecera
+router.get("/cartCab",getCart_cabs)
+router.get("/cartCab/:id",getCart_cabsById)
+router.post("/cartCab",postCreateCart_cabs)
+router.put("/cartCab",putUpdateCart_cabs)
+router.put("/cartCab",deleteCart_cabs)
 
 
 module.exports=router
