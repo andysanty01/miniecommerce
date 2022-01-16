@@ -4,7 +4,8 @@ const { getUsers, getUsersByRole, postCreateUsers, putUpdateUsers, deleteUsers }
 const {getSections, getSectionsByName, postCreateSections, putUpdateSections, deleteSections} = require("../controllers/section.controller");
 const {getProducts,getProductsByTitle,postCreateProducts,putUpdateProducts,deleteProducts}= require("../controllers/product.controller");
 const {getSectionsDel, getSectionsDelBySection, postCreateSectionsDel, putUpdateSectionsDel, deleteSectionsDel} = require("../controllers/section_del.controller")
-const {}=require("../controllers/cart_cab.controller")
+const {getCart_cabs, getCart_cabsById, postCreateCart_cabs, putUpdateCart_cabs, deleteCart_cabs}=require("../controllers/cart_cab.controller")
+const { getCart_dets, getCart_detsByDetalle, postCreateCart_dets, putUpdateCart_dets, deleteCart_dets}=require("../controllers/cart_det.controller")
 
 
 
@@ -51,6 +52,13 @@ router.get("/cartCab/:id",getCart_cabsById)
 router.post("/cartCab",postCreateCart_cabs)
 router.put("/cartCab",putUpdateCart_cabs)
 router.put("/cartCab",deleteCart_cabs)
+
+//Rutas de Cart Detalle
+router.get("/cartDet",getCart_dets)
+router.get("/cartDet/:id",getCart_detsByDetalle)
+router.post("/cartDet",postCreateCart_dets)
+router.put("/cartDet",putUpdateCart_dets)
+router.delete("/cartDet",deleteCart_dets)
 
 
 module.exports=router

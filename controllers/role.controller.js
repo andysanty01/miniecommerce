@@ -5,6 +5,7 @@ const getRoles = async (req, res) => {
   res.json(response);
 };
 
+
 //Metodo para listar los roles por tipo
 const getRolesByType = async (req, res) => {
   const type = req.params.type;
