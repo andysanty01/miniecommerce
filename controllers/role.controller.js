@@ -58,7 +58,7 @@ const putUpdateRoles = async (req, res) => {
 
 // Desactivacion de roles
 const deleteRoles = async (req, res) => {
-  const { rol_id } = req.query;
+  const { rol_id } = req.body;
   const response = await db.query(`update cs_role set rol_state=false where rol_id=$1`, [rol_id,]);
   res.json({
     message: "Rol desactivado con exito",
