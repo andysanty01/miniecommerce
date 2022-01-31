@@ -52,8 +52,8 @@ const putUpdateSections = async (req, res) => {
 
 // Desactivacion de sections
 const deleteSections = async (req, res) => {
-  const { sec_id } = req.query;
-  const response = await db.query(`update cs_section set sec_state=false where sec_id=$1`, [sec_id,]);
+  const { sec_id } = req.body;
+  const response = await db.query(`update cs_section set sec_state=false where sec_id=$1`, [sec_id]);
   res.json({
     message: "Section desactivado con exito",
     body: { Section: { sec_id } },

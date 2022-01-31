@@ -30,28 +30,28 @@ router.get("/sections",getSections)
 router.get("/sections/:name",getSectionsByName)
 router.post("/sections",postCreateSections)
 router.put("/sections",putUpdateSections)
-router.put("/sections",deleteSections)
+router.put("/sectionsd",deleteSections)
 
 //Rutas de products
 router.get("/products",getProducts)
 router.get("/products/:title",getProductsByTitle)
 router.post("/products",postCreateProducts)
 router.put("/products",putUpdateProducts)
-router.put("/products",deleteProducts)
+router.put("/productsd",deleteProducts)
 
 //Rutas de sectionsDel
 router.get("/sections_del",getSectionsDel)
 router.get("/sections_del/:section",getSectionsDelBySection)
 router.post("/sections_del",postCreateSectionsDel)
 router.put("/sections_del",putUpdateSectionsDel)
-router.put("/sections_del",deleteSectionsDel)
+router.put("/sections_deld",deleteSectionsDel)
 
 //Rutas de Cart Cabecera
 router.get("/cartCab",getCart_cabs)
 router.get("/cartCab/:id",getCart_cabsById)
 router.post("/cartCab",postCreateCart_cabs)
 router.put("/cartCab",putUpdateCart_cabs)
-router.put("/cartCab",deleteCart_cabs)
+router.put("/cartCabd",deleteCart_cabs)
 
 //Rutas de Cart Detalle
 router.get("/cartDet",getCart_dets)

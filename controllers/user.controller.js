@@ -58,7 +58,7 @@ const putUpdateUsers = async (req, res) => {
 
 // Desactivacion de users
 const deleteUsers = async (req, res) => {
-  const { user_id } = req.query;
+  const { user_id } = req.body;
   const response = await db.query(`update cs_user set user_state=false where user_id=$1`, [user_id]);
   res.json({
     message: "Usuario desactivado con exito",

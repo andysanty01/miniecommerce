@@ -62,7 +62,7 @@ const putUpdateCart_cabs = async (req, res) => {
 
 // Desactivacion de cart_cabs
 const deleteCart_cabs = async (req, res) => {
-  const { cart_cab_id } = req.query;
+  const { cart_cab_id } = req.body;
   const response = await db.query(`update cs_cart_cab set cart_cab_state=false where cart_cab_id=$1`, [cart_cab_id]);
   res.json({
     message: "Cart Cab desactivado con exito",

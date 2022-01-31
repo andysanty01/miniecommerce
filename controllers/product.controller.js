@@ -18,7 +18,7 @@ const postCreateProducts = async (req, res) => {
   const { product_title, product_description, product_cost, product_price, product_stock, product_type, product_image} = req.body;
   console.log(req.body);
   const response = await db.query(
-    `insert into cs_product(product_title, product_description, product_cost, product_price, product_stock, product_type, product_image) values($1,$2,$3,$4,$5,$6,$7,true)`,
+    `insert into cs_product(product_title, product_description, product_cost, product_price, product_stock, product_type, product_image, product_state) values($1,$2,$3,$4,$5,$6,$7,true)`,
     [product_title, product_description, product_cost, product_price, product_stock, product_type, product_image]
   );
   res.json({
@@ -31,8 +31,7 @@ const postCreateProducts = async (req, res) => {
         product_price, 
         product_stock, 
         product_type, 
-        product_image, 
-        producto_state
+        product_image
       },
     },
   });
@@ -65,7 +64,7 @@ const putUpdateProducts = async (req, res) => {
 // Desactivacion de products
 const deleteProducts = async (req, res) => {
   const { product_id } = req.query;
-  const response = await db.query(`update cs_product set product_state=false where product_id=$1`, [product_id,]);
+  const response = await db.query(`update cs_product set product_state=false where product_id=$1`, [product_id]);
   res.json({
     message: "Product desactivado con exito",
     body: { Product: { product_id } },

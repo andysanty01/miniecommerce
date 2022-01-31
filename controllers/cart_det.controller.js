@@ -60,7 +60,7 @@ const putUpdateCart_dets = async (req, res) => {
 
 // Desactivacion de cart_cabs
 const deleteCart_dets = async (req, res) => {
-  const { cart_det_id } = req.query;
+  const { cart_det_id } = req.body;
   const response = await db.query(`delete from public.cs_cart_det where cart_det_id=$1`, [cart_det_id]);
   res.json({
     message: "Cart Detalle eliminado con exito",
