@@ -63,7 +63,7 @@ const putUpdateProducts = async (req, res) => {
 
 // Desactivacion de products
 const deleteProducts = async (req, res) => {
-  const { product_id } = req.query;
+  const { product_id } = req.body;
   const response = await db.query(`update cs_product set product_state=false where product_id=$1`, [product_id]);
   res.json({
     message: "Product desactivado con exito",
