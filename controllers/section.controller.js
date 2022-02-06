@@ -14,41 +14,22 @@ const getSectionsByName = async (req, res) => {
   res.json(response);
 };
 
-//Metodo de creacion de sections
 const postCreateSections = async (req, res) => {
-  const { sec_name} = req.body;
-  console.log(req.body);
-  const response = await db.query(
-    `insert into cs_section(sec_name, sec_state) values($1,true)`,
-    [sec_name]
-  );
+  const { sec_name, sec_state} = req.body
+  const response = await db.any('INSERT INTO cs_section( sec_name, sec_state)VALUES ($1,true)',[sec_name, sec_state])
   res.json({
-    message: "Section creado con exito",
-    body: {
-      Section: {
-        sec_name
-      },
-    },
-  });
-};
+      message:'Seccion Creado correctamente',body:{ sec_name, sec_state}
+  })
+}
 
-// Actualizacion de Section
+// Actualizacion de Rol
 const putUpdateSections = async (req, res) => {
-  const { sec_id,sec_name} = req.body;
-  const response = await db.query(
-    `update cs_section set sec_name=$2 where sec_id=$1`,
-    [sec_id,sec_name]
-  );
+  const {sec_id, sec_name} = req.body
+  const response = await db.any('UPDATE cs_section set sec_name=$2 where sec_id=$1',[sec_id, sec_name])
   res.json({
-    message: "Section actualizado con éxito",
-    body: {
-      Section:{
-        sec_id,
-        sec_name
-      },
-    },
-  });
-};
+      message:'Seccion Actualizado correctamente',body:{sec_id, sec_name}
+  })
+}
 
 // Desactivacion de sections
 const deleteSections = async (req, res) => {
